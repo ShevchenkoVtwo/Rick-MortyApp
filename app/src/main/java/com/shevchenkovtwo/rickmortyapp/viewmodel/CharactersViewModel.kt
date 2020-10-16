@@ -1,19 +1,23 @@
 package com.shevchenkovtwo.rickmortyapp.viewmodel
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.shevchenkovtwo.rickmortyapp.AppApi
 import com.shevchenkovtwo.rickmortyapp.AppConstants
 import com.shevchenkovtwo.rickmortyapp.AppConstants.TAG
+import com.shevchenkovtwo.rickmortyapp.model.Character
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
 class CharactersViewModel : ViewModel() {
+
+    val charactersData: MutableLiveData<List<Character>> = MutableLiveData()
+
     init {
         val gson = GsonBuilder()
             .setLenient()
@@ -26,9 +30,10 @@ class CharactersViewModel : ViewModel() {
 
         viewModelScope.launch {
             val result = api.getAllCharacters()
-            result.body()?.characters?.forEach {
-                Log.e(TAG, it.name)
+            result.body()?.characters?.let {
+                charactersData.postValue(it)
             }
+
         }
     }
 }
