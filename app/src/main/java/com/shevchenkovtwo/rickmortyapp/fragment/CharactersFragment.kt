@@ -20,7 +20,6 @@ class CharactersFragment : Fragment() {
 
     private lateinit var charactersViewModel: CharactersViewModel
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

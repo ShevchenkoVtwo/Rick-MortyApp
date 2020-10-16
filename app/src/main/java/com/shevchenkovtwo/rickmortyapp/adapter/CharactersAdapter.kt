@@ -11,10 +11,8 @@ import com.bumptech.glide.Glide
 import com.shevchenkovtwo.rickmortyapp.R
 import com.shevchenkovtwo.rickmortyapp.model.Character
 
-class CharactersAdapter(
-    private var context: Context,
-    private var charactersList: List<Character>
-) : RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
+class CharactersAdapter(private var context: Context, private var charactersList: List<Character>) :
+    RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var characterName: TextView? = null
         var characterStatus: TextView? = null
@@ -24,19 +22,17 @@ class CharactersAdapter(
         var characterImage: ImageView? = null
 
         init {
-            characterName = itemView.findViewById(R.id.tv_name) as TextView
-            characterStatus = itemView.findViewById(R.id.tv_status) as TextView
-            characterSpecies = itemView.findViewById(R.id.tv_species) as TextView
-            characterGender = itemView.findViewById(R.id.tv_gender) as TextView
-            characterCreated = itemView.findViewById(R.id.tv_created) as TextView
+            characterName = itemView.findViewById(R.id.tv_character_name) as TextView
+            characterStatus = itemView.findViewById(R.id.tv_character_status) as TextView
+            characterSpecies = itemView.findViewById(R.id.tv_character_species) as TextView
+            characterGender = itemView.findViewById(R.id.tv_character_gender) as TextView
+            characterCreated = itemView.findViewById(R.id.tv_character_created) as TextView
             characterImage = itemView.findViewById(R.id.imv_character) as ImageView
         }
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
+            ViewHolder {
         return ViewHolder(
             LayoutInflater.from(context)
                 .inflate(R.layout.character_item, parent, false)
