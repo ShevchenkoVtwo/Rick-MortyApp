@@ -7,16 +7,13 @@
     <fragment
         android:id="@+id/charactersFragment"
         android:name="com.shevchenkovtwo.rickmortyapp.fragment.CharactersFragment"
-        android:label="fragment_character"
         tools:layout="@layout/characters_fragment" />
     <fragment
         android:id="@+id/locationFragment"
         android:name="com.shevchenkovtwo.rickmortyapp.fragment.LocationFragment"
-        android:label="location_fragment"
-        tools:layout="@layout/location_fragment" />
+        tools:layout="@layout/locations_fragment" />
     <fragment
         android:id="@+id/episodesFragment"
         android:name="com.shevchenkovtwo.rickmortyapp.fragment.EpisodesFragment"
-        android:label="episodes_fragment"
         tools:layout="@layout/episodes_fragment" />
 </navigation>

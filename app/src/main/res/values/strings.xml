@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Rick&amp;MortyApp</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="time_of_creation">Time at which the character was created in the database:</string>
+    <string name="character_time_of_creation">Time at which character was created in the database:</string>
+    <string name="location_time_of_creation">Time at which location was created in the database:</string>
+    <string name="episode_time_of_creation">Time at which episode was created in the database:</string>
+    <string name="character_image">Character image</string>
+    <string name="menu_locations">Locations</string>
+    <string name="menu_characters">Characters</string>
+    <string name="menu_episodes">Episodes</string>
 </resources>
