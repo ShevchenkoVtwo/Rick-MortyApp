@@ -8,7 +8,7 @@
         android:id="@+id/charactersFragment"
         android:name="com.shevchenkovtwo.rickmortyapp.fragment.CharactersFragment"
         android:label="fragment_character"
-        tools:layout="@layout/fragment_characters" />
+        tools:layout="@layout/characters_fragment" />
     <fragment
         android:id="@+id/locationFragment"
         android:name="com.shevchenkovtwo.rickmortyapp.fragment.LocationFragment"
