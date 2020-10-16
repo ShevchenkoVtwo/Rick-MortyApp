@@ -24,19 +24,20 @@
             android:id="@+id/tv_created_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="18dp"
             android:text="@string/time_of_creation"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/imv_character"
-            app:layout_constraintTop_toBottomOf="@+id/imv_character" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_species" />
 
         <TextView
             android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
             android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imv_character"
             app:layout_constraintTop_toTopOf="@+id/imv_character"
             tools:text="Character name " />
@@ -45,7 +46,7 @@
             android:id="@+id/tv_species"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="17dp"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@+id/tv_status"
             app:layout_constraintTop_toBottomOf="@+id/tv_status"
@@ -55,11 +56,10 @@
             android:id="@+id/tv_gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="18dp"
             android:textSize="24sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_status"
             app:layout_constraintStart_toEndOf="@+id/tv_status"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name"
             tools:text="Gender" />
 
         <TextView
