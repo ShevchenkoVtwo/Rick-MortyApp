@@ -64,4 +64,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_location_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_location_type" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
