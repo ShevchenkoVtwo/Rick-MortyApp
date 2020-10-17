@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_characters"
+        android:id="@+id/nav_characters"
         android:icon="@drawable/ic_person"
         android:title="@string/menu_characters" />
     <item
-        android:id="@+id/menu_locations"
+        android:id="@+id/nav_locations"
         android:icon="@drawable/ic_map"
         android:title="@string/menu_locations" />
     <item
-        android:id="@+id/menu_episodes"
+        android:id="@+id/nav_episodes"
         android:icon="@drawable/ic_video"
         android:title="@string/menu_episodes" />
 </menu>
