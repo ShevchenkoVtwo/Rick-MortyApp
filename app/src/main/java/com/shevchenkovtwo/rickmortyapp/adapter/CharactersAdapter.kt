@@ -32,9 +32,9 @@ class CharactersAdapter(private var context: Context, private var charactersList
         Glide.with(context)
             .load(charactersList[position].image)
             .into(holder.item.findViewById(R.id.imv_character))
-        holder.itemView.setOnClickListener {
+        holder.item.setOnClickListener {
             AppConstants.characterSelected = charactersList[position]
-            holder.itemView.findNavController()
+            holder.item.findNavController()
                 .navigate(R.id.action_charactersFragment_to_characterFragment)
         }
     }
