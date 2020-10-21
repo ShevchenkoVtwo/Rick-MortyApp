@@ -7,7 +7,7 @@
     android:background="@drawable/rounded_rect">
 
     <TextView
-        android:id="@+id/tv_episode_name"
+        android:id="@+id/tv_episode_name_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"

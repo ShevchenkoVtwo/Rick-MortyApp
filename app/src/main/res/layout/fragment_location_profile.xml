@@ -3,67 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@drawable/space_phone">
 
     <TextView
-        android:id="@+id/tv_location_name"
+        android:id="@+id/tv_location_name_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="500dp"
         android:layout_marginEnd="16dp"
+        android:fontFamily="@font/font"
         android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Location name" />
 
-    <TextView
-        android:id="@+id/tv_location_type"
+    <view
+        android:id="@+id/view3"
+        class="androidx.constraintlayout.widget.ConstraintLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toStartOf="@+id/tv_location_dimension"
-        app:layout_constraintStart_toStartOf="@+id/tv_location_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_location_name"
-        tools:text="Location type" />
-
-    <TextView
-        android:id="@+id/tv_location_dimension"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_location_type"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Location dimension" />
-
-    <TextView
-        android:id="@+id/tv_location_created"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_rect_top"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_created_time_location"
-        app:layout_constraintTop_toBottomOf="@+id/tv_created_time_location"
-        tools:text="Location created" />
-
-    <TextView
-        android:id="@+id/tv_created_time_location"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/location_time_of_creation"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_location_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_location_type" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_location_name_text" />
+
+    <include
+        layout="@layout/data_card_location"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
