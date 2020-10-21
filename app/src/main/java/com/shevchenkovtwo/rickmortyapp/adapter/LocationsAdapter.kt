@@ -15,13 +15,11 @@ class LocationsAdapter(private var context: Context, private var locationsList: 
         var locationName: TextView? = null
         var locationType: TextView? = null
         var locationDimension: TextView? = null
-        var locationCreated: TextView? = null
 
         init {
             locationName = itemView.findViewById(R.id.tv_location_name) as TextView
             locationType = itemView.findViewById(R.id.tv_location_type) as TextView
             locationDimension = itemView.findViewById(R.id.tv_location_dimension) as TextView
-            locationCreated = itemView.findViewById(R.id.tv_location_created) as TextView
         }
     }
 
@@ -29,7 +27,7 @@ class LocationsAdapter(private var context: Context, private var locationsList: 
             ViewHolder {
         return ViewHolder(
             LayoutInflater.from(context)
-                .inflate(R.layout.location_item, parent, false)
+                .inflate(R.layout.list_view_location_item, parent, false)
         )
     }
 
@@ -37,7 +35,6 @@ class LocationsAdapter(private var context: Context, private var locationsList: 
         holder.locationName?.text = locationsList[position].name
         holder.locationType?.text = locationsList[position].type
         holder.locationDimension?.text = locationsList[position].dimension
-        holder.locationCreated?.text = locationsList[position].created
     }
 
     override fun getItemCount(): Int {

@@ -15,13 +15,11 @@ class EpisodesAdapter(private var context: Context, private var episodesList: Li
         var episodeName: TextView? = null
         var episodeAirDate: TextView? = null
         var episodeCode: TextView? = null
-        var episodeCreated: TextView? = null
 
         init {
             episodeName = itemView.findViewById(R.id.tv_episode_name) as TextView
             episodeAirDate = itemView.findViewById(R.id.tv_episode_air_date) as TextView
             episodeCode = itemView.findViewById(R.id.tv_episode_code) as TextView
-            episodeCreated = itemView.findViewById(R.id.tv_episode_created) as TextView
         }
     }
 
@@ -29,7 +27,7 @@ class EpisodesAdapter(private var context: Context, private var episodesList: Li
             ViewHolder {
         return ViewHolder(
             LayoutInflater.from(context)
-                .inflate(R.layout.episode_item, parent, false)
+                .inflate(R.layout.list_view_episode_item, parent, false)
         )
     }
 
@@ -37,7 +35,6 @@ class EpisodesAdapter(private var context: Context, private var episodesList: Li
         holder.episodeName?.text = episodesList[position].name
         holder.episodeAirDate?.text = episodesList[position].airDate
         holder.episodeCode?.text = episodesList[position].code
-        holder.episodeCreated?.text = episodesList[position].created
     }
 
     override fun getItemCount(): Int {
