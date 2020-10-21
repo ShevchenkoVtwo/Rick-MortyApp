@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.shevchenkovtwo.rickmortyapp.AppConstants
+import com.shevchenkovtwo.rickmortyapp.R
 import com.shevchenkovtwo.rickmortyapp.databinding.FragmentCharacterProfileBinding
 import com.shevchenkovtwo.rickmortyapp.viewmodel.CharacterViewModel
 
@@ -37,11 +39,11 @@ class CharacterFragment : Fragment() {
             fragmentCharacterBinding?.layoutCharacterCard?.tvCharacterCreatedText?.text = it.created
             fragmentCharacterBinding?.layoutCharacterCard?.tvCharacterStatusText?.text = it.status
             when (it.status) {
-                "Alive" -> fragmentCharacterBinding?.layoutCharacterCard?.tvCharacterStatusText
+                AppConstants.statusAlive -> fragmentCharacterBinding?.layoutCharacterCard?.tvCharacterStatusText
                     ?.setTextColor(GREEN)
-                "Dead" -> fragmentCharacterBinding?.layoutCharacterCard?.tvCharacterStatusText
+                AppConstants.statusDead -> fragmentCharacterBinding?.layoutCharacterCard?.tvCharacterStatusText
                     ?.setTextColor(RED)
-                "unknown" -> fragmentCharacterBinding?.layoutCharacterCard?.tvCharacterStatusText
+                AppConstants.statusUnknown -> fragmentCharacterBinding?.layoutCharacterCard?.tvCharacterStatusText
                     ?.setTextColor(Color.YELLOW)
             }
             fragmentCharacterBinding?.imvCharacterImage?.let { image ->

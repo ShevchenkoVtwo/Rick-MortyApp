@@ -2,6 +2,7 @@ package com.shevchenkovtwo.rickmortyapp.adapter
 
 
 import android.content.Context
+import android.graphics.Color.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +32,11 @@ class CharactersAdapter(private var context: Context, private var charactersList
         with(holder) {
             binding.tvCharacterName.text = charactersList[position].name
             binding.tvCharacterStatus.text = charactersList[position].status
+            when (charactersList[position].status) {
+                AppConstants.statusAlive -> binding.tvCharacterStatus.setTextColor(GREEN)
+                AppConstants.statusDead -> binding.tvCharacterStatus.setTextColor(RED)
+                AppConstants.statusUnknown -> binding.tvCharacterStatus.setTextColor(YELLOW)
+            }
             Glide.with(context)
                 .load(charactersList[position].image)
                 .into(binding.imvCharacter)

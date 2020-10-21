@@ -15,4 +15,7 @@
     <string name="episode_code">Episode code</string>
     <string name="episode_air">Episode air date</string>
     <string name="episode_name">Episode name</string>
+    <string name="location_name">Location name</string>
+    <string name="location_dimension">Location dimension</string>
+    <string name="location_type">Location type</string>
 </resources>

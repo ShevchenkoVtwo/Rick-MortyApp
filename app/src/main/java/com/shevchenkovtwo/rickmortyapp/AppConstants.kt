@@ -11,4 +11,7 @@ object AppConstants {
     var locationSelected: Location? = null
     var episodeSelected: Episode? = null
     var pageCounter = 1
+    val statusAlive = "Alive"
+    val statusDead = "Dead"
+    val statusUnknown = "unknown"
 }
