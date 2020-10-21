@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.shevchenkovtwo.rickmortyapp.AppConstants
-import com.shevchenkovtwo.rickmortyapp.R
 import com.shevchenkovtwo.rickmortyapp.databinding.FragmentCharacterProfileBinding
 import com.shevchenkovtwo.rickmortyapp.viewmodel.CharacterViewModel
 
