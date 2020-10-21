@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.shevchenkovtwo.rickmortyapp.viewmodel.LocationViewModel
 import com.shevchenkovtwo.rickmortyapp.R
 
@@ -23,6 +24,12 @@ class LocationFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         locationModel = ViewModelProvider(this).get(LocationViewModel::class.java)
+        locationModel.getLocationLiveData().observe(viewLifecycleOwner,{
+            view?.findViewById<TextView>(R.id.tv_location_name_text)?.text = it.name
+            view?.findViewById<TextView>(R.id.tv_location_dimension_text)?.text = it.dimension
+            view?.findViewById<TextView>(R.id.tv_location_type_text)?.text = it?.type
+            view?.findViewById<TextView>(R.id.tv_location_created_text)?.text = it?.created
+        })
     }
 
 }
