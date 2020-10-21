@@ -8,15 +8,20 @@ import androidx.navigation.NavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.shevchenkovtwo.rickmortyapp.R
+import com.shevchenkovtwo.rickmortyapp.databinding.ActivityMainBinding
 import com.shevchenkovtwo.rickmortyapp.navigation.setupWithNavController
+
 
 class MainActivity : AppCompatActivity() {
 
     private var currentNavController: LiveData<NavController>? = null
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
         }
@@ -48,4 +53,20 @@ class MainActivity : AppCompatActivity() {
         currentNavController = controller
     }
 
+//    override fun onStart() {
+//        super.onStart()
+//        EventBus.getDefault().register(this)
+//    }
+//
+//    override fun onStop() {
+//        EventBus.getDefault().unregister(true)
+//        super.onStop()
+//    }
+//
+//    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+//    fun onCharacterSelected(event: CharacterItemClick) {
+//        if (event.isSuccess) {
+//            findNavController(R.id.nav_host_fragment).navigate(R.id.characterFragment)
+//        }
+//    }
 }
