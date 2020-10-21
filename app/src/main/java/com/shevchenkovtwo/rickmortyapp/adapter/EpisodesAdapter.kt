@@ -5,23 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.shevchenkovtwo.rickmortyapp.AppConstants
 import com.shevchenkovtwo.rickmortyapp.R
 import com.shevchenkovtwo.rickmortyapp.model.Episode
 
 class EpisodesAdapter(private var context: Context, private var episodesList: List<Episode>) :
     RecyclerView.Adapter<EpisodesAdapter.ViewHolder>() {
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var episodeName: TextView? = null
-        var episodeAirDate: TextView? = null
-        var episodeCode: TextView? = null
-
-        init {
-            episodeName = itemView.findViewById(R.id.tv_episode_name) as TextView
-            episodeAirDate = itemView.findViewById(R.id.tv_episode_air_date) as TextView
-            episodeCode = itemView.findViewById(R.id.tv_episode_code) as TextView
-        }
-    }
+    class ViewHolder(val item: View) : RecyclerView.ViewHolder(item)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             ViewHolder {
@@ -32,9 +24,13 @@ class EpisodesAdapter(private var context: Context, private var episodesList: Li
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.episodeName?.text = episodesList[position].name
-        holder.episodeAirDate?.text = episodesList[position].airDate
-        holder.episodeCode?.text = episodesList[position].code
+        holder.item.findViewById<TextView>(R.id.tv_episode_name).text =
+            episodesList[position].name
+        holder.item.setOnClickListener {
+            AppConstants.episodeSelected = episodesList[position]
+            holder.item.findNavController()
+                .navigate(R.id.action_episodesFragment_to_episodeFragment)
+        }
     }
 
     override fun getItemCount(): Int {

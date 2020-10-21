@@ -5,23 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.shevchenkovtwo.rickmortyapp.AppConstants
 import com.shevchenkovtwo.rickmortyapp.R
 import com.shevchenkovtwo.rickmortyapp.model.Location
 
 class LocationsAdapter(private var context: Context, private var locationsList: List<Location>) :
     RecyclerView.Adapter<LocationsAdapter.ViewHolder>() {
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var locationName: TextView? = null
-        var locationType: TextView? = null
-        var locationDimension: TextView? = null
-
-        init {
-            locationName = itemView.findViewById(R.id.tv_location_name) as TextView
-            locationType = itemView.findViewById(R.id.tv_location_type) as TextView
-            locationDimension = itemView.findViewById(R.id.tv_location_dimension) as TextView
-        }
-    }
+    class ViewHolder(val item: View) : RecyclerView.ViewHolder(item)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             ViewHolder {
@@ -32,9 +24,13 @@ class LocationsAdapter(private var context: Context, private var locationsList: 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.locationName?.text = locationsList[position].name
-        holder.locationType?.text = locationsList[position].type
-        holder.locationDimension?.text = locationsList[position].dimension
+        holder.item.findViewById<TextView>(R.id.tv_location_name).text =
+            locationsList[position].name
+        holder.item.setOnClickListener {
+            AppConstants.locationSelected = locationsList[position]
+            holder.item.findNavController()
+                .navigate(R.id.action_locationsFragment_to_locationFragment)
+        }
     }
 
     override fun getItemCount(): Int {
