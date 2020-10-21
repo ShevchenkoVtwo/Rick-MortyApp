@@ -3,14 +3,14 @@
 
     <item
         android:id="@+id/nav_characters"
-        android:icon="@drawable/ic_person"
+        android:icon="@drawable/ic_person_menu"
         android:title="@string/menu_characters" />
     <item
         android:id="@+id/nav_locations"
-        android:icon="@drawable/ic_map"
+        android:icon="@drawable/ic_map_menu"
         android:title="@string/menu_locations" />
     <item
         android:id="@+id/nav_episodes"
-        android:icon="@drawable/ic_video"
+        android:icon="@drawable/ic_video_menu"
         android:title="@string/menu_episodes" />
 </menu>

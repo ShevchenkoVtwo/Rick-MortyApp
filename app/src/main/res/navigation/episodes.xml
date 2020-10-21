@@ -8,6 +8,14 @@
     <fragment
         android:id="@+id/episodesFragment"
         android:name="com.shevchenkovtwo.rickmortyapp.fragment.EpisodesFragment"
-        tools:layout="@layout/episodes_fragment" />
+        tools:layout="@layout/fragment_episodes" >
+        <action
+            android:id="@+id/action_episodesFragment_to_episodeFragment"
+            app:destination="@id/fragmentEpisodeProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentEpisodeProfile"
+        android:name="com.shevchenkovtwo.rickmortyapp.fragment.EpisodeFragment"
+        tools:layout="@layout/fragment_episode_proflie" />
 
 </navigation>

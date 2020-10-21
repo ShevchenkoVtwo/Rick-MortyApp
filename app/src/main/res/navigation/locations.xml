@@ -7,7 +7,15 @@
 
     <fragment
         android:id="@+id/locationsFragment"
+        android:name="com.shevchenkovtwo.rickmortyapp.fragment.LocationsFragment"
+        tools:layout="@layout/fragment_locations" >
+        <action
+            android:id="@+id/action_locationsFragment_to_locationFragment"
+            app:destination="@id/fragmentLocationProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentLocationProfile"
         android:name="com.shevchenkovtwo.rickmortyapp.fragment.LocationFragment"
-        tools:layout="@layout/locations_fragment" />
+        tools:layout="@layout/fragment_location_profile" />
 
 </navigation>
