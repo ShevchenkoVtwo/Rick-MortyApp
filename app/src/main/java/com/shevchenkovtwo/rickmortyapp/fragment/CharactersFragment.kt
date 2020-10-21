@@ -21,7 +21,7 @@ class CharactersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.characters_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_characters, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -29,9 +29,10 @@ class CharactersFragment : Fragment() {
         val recyclerView = view?.findViewById<RecyclerView>(R.id.rv_characters)
         charactersViewModel = ViewModelProvider(this).get(CharactersViewModel::class.java)
         charactersViewModel.charactersData.observe(viewLifecycleOwner, Observer {
-            val characterAdapter = CharactersAdapter(requireContext(), it)
+            val charactersAdapter = CharactersAdapter(requireContext(), it)
             recyclerView?.layoutManager = LinearLayoutManager(requireContext())
-            recyclerView?.adapter = characterAdapter
+            recyclerView?.adapter = charactersAdapter
         })
     }
 }
+

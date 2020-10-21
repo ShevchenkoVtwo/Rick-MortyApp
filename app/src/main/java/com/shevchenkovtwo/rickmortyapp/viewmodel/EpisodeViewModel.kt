@@ -2,6 +2,6 @@ package com.shevchenkovtwo.rickmortyapp.viewmodel
 
 import androidx.lifecycle.ViewModel
 
-class LocationViewModel : ViewModel() {
+class EpisodeViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 }

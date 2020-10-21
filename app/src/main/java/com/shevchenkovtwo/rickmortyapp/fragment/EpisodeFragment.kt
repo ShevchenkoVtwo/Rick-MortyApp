@@ -6,23 +6,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.shevchenkovtwo.rickmortyapp.viewmodel.LocationViewModel
+import com.shevchenkovtwo.rickmortyapp.viewmodel.EpisodeViewModel
 import com.shevchenkovtwo.rickmortyapp.R
 
-class LocationFragment : Fragment() {
+class EpisodeFragment : Fragment() {
 
-    private lateinit var locationModel: LocationViewModel
+    private lateinit var episodeModel: EpisodeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_location_profile, container, false)
+        return inflater.inflate(R.layout.fragment_episode_proflie, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        locationModel = ViewModelProvider(this).get(LocationViewModel::class.java)
+        episodeModel = ViewModelProvider(this).get(EpisodeViewModel::class.java)
     }
 
 }
