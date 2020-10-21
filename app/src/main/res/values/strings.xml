@@ -14,4 +14,5 @@
     <string name="character_gender">Gender</string>
     <string name="episode_code">Episode code</string>
     <string name="episode_air">Episode air date</string>
+    <string name="episode_name">Episode name</string>
 </resources>
