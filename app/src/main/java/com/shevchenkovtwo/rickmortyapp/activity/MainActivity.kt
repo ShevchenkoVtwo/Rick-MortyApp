@@ -33,8 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigationBar() {
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-
+        val bottomNavigationView = binding.bottomNavigationView
         val navGraphIds =
             listOf(R.navigation.characters, R.navigation.locations, R.navigation.episodes)
 
@@ -52,21 +51,4 @@ class MainActivity : AppCompatActivity() {
         })
         currentNavController = controller
     }
-
-//    override fun onStart() {
-//        super.onStart()
-//        EventBus.getDefault().register(this)
-//    }
-//
-//    override fun onStop() {
-//        EventBus.getDefault().unregister(true)
-//        super.onStop()
-//    }
-//
-//    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
-//    fun onCharacterSelected(event: CharacterItemClick) {
-//        if (event.isSuccess) {
-//            findNavController(R.id.nav_host_fragment).navigate(R.id.characterFragment)
-//        }
-//    }
 }
