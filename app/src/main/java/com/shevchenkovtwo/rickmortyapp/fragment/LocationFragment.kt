@@ -6,10 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.shevchenkovtwo.rickmortyapp.viewmodel.LocationViewModel
-import com.shevchenkovtwo.rickmortyapp.R
-import com.shevchenkovtwo.rickmortyapp.databinding.FragmentEpisodeProflieBinding
 import com.shevchenkovtwo.rickmortyapp.databinding.FragmentLocationProfileBinding
 
 class LocationFragment : Fragment() {
@@ -36,4 +33,8 @@ class LocationFragment : Fragment() {
         })
     }
 
+    override fun onDestroyView() {
+        fragmentEpisodeBinding = null
+        super.onDestroyView()
+    }
 }

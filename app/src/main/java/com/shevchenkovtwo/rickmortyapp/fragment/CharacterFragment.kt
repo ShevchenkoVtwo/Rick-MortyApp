@@ -50,4 +50,9 @@ class CharacterFragment : Fragment() {
             }
         })
     }
+
+    override fun onDestroyView() {
+        fragmentCharacterBinding = null
+        super.onDestroyView()
+    }
 }

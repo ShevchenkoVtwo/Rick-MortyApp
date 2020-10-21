@@ -8,12 +8,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.shevchenkovtwo.rickmortyapp.R
 import com.shevchenkovtwo.rickmortyapp.adapter.CharactersAdapter
-import com.shevchenkovtwo.rickmortyapp.databinding.FragmentCharacterProfileBinding
 import com.shevchenkovtwo.rickmortyapp.databinding.FragmentCharactersBinding
-import com.shevchenkovtwo.rickmortyapp.databinding.FragmentEpisodeProflieBinding
 import com.shevchenkovtwo.rickmortyapp.viewmodel.CharactersViewModel
 
 class CharactersFragment : Fragment() {
@@ -39,6 +35,11 @@ class CharactersFragment : Fragment() {
             recyclerView?.layoutManager = LinearLayoutManager(requireContext())
             recyclerView?.adapter = charactersAdapter
         })
+    }
+
+    override fun onDestroyView() {
+        fragmentCharactersBinding = null
+        super.onDestroyView()
     }
 }
 

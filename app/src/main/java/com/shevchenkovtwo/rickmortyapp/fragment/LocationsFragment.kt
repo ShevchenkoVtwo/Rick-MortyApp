@@ -8,11 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.shevchenkovtwo.rickmortyapp.viewmodel.LocationsViewModel
-import com.shevchenkovtwo.rickmortyapp.R
 import com.shevchenkovtwo.rickmortyapp.adapter.LocationsAdapter
-import com.shevchenkovtwo.rickmortyapp.databinding.FragmentEpisodesBinding
 import com.shevchenkovtwo.rickmortyapp.databinding.FragmentLocationsBinding
 
 class LocationsFragment : Fragment() {
@@ -37,5 +34,10 @@ class LocationsFragment : Fragment() {
             recyclerView?.layoutManager = LinearLayoutManager(requireContext())
             recyclerView?.adapter = episodesAdapter
         })
+    }
+
+    override fun onDestroyView() {
+        fragmentLocationsBinding = null
+        super.onDestroyView()
     }
 }

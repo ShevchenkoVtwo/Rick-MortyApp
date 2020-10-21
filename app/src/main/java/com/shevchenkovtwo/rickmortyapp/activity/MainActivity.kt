@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.shevchenkovtwo.rickmortyapp.R
 import com.shevchenkovtwo.rickmortyapp.databinding.ActivityMainBinding
 import com.shevchenkovtwo.rickmortyapp.navigation.setupWithNavController
@@ -20,8 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
         }

@@ -8,11 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.shevchenkovtwo.rickmortyapp.viewmodel.EpisodesViewModel
-import com.shevchenkovtwo.rickmortyapp.R
 import com.shevchenkovtwo.rickmortyapp.adapter.EpisodesAdapter
-import com.shevchenkovtwo.rickmortyapp.databinding.FragmentCharactersBinding
 import com.shevchenkovtwo.rickmortyapp.databinding.FragmentEpisodesBinding
 
 class EpisodesFragment : Fragment() {
@@ -40,4 +37,8 @@ class EpisodesFragment : Fragment() {
         })
     }
 
+    override fun onDestroyView() {
+        fragmentEpisodesBinding = null
+        super.onDestroyView()
+    }
 }

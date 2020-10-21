@@ -33,4 +33,9 @@ class EpisodeFragment : Fragment() {
             fragmentEpisodeBinding?.layoutEpisodeCard?.tvEpisodeCodeText?.text = it.code
         })
     }
+
+    override fun onDestroyView() {
+        fragmentEpisodeBinding = null
+        super.onDestroyView()
+    }
 }
