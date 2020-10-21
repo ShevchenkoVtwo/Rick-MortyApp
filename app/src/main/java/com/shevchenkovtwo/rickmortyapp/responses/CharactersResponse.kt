@@ -5,4 +5,5 @@ import com.shevchenkovtwo.rickmortyapp.model.Character
 
 data class CharactersResponse(
     @SerializedName("results")
-    val characters:List<Character>)
+    val characters: List<Character>
+)
