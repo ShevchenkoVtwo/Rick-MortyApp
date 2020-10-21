@@ -12,21 +12,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shevchenkovtwo.rickmortyapp.viewmodel.EpisodesViewModel
 import com.shevchenkovtwo.rickmortyapp.R
 import com.shevchenkovtwo.rickmortyapp.adapter.EpisodesAdapter
+import com.shevchenkovtwo.rickmortyapp.databinding.FragmentCharactersBinding
+import com.shevchenkovtwo.rickmortyapp.databinding.FragmentEpisodesBinding
 
 class EpisodesFragment : Fragment() {
 
     private lateinit var episodesViewModel: EpisodesViewModel
+    private var fragmentEpisodesBinding: FragmentEpisodesBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_episodes, container, false)
+        val binding = FragmentEpisodesBinding.inflate(inflater, container, false)
+        fragmentEpisodesBinding = binding
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val recyclerView = view?.findViewById<RecyclerView>(R.id.rv_episodes)
+        val recyclerView = fragmentEpisodesBinding?.rvEpisodes
         episodesViewModel = ViewModelProvider(this).get(EpisodesViewModel::class.java)
         episodesViewModel.episodesData.observe(viewLifecycleOwner, Observer {
             val episodesAdapter = EpisodesAdapter(requireContext(), it)

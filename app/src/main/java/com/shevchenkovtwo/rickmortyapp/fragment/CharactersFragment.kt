@@ -11,22 +11,28 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shevchenkovtwo.rickmortyapp.R
 import com.shevchenkovtwo.rickmortyapp.adapter.CharactersAdapter
+import com.shevchenkovtwo.rickmortyapp.databinding.FragmentCharacterProfileBinding
+import com.shevchenkovtwo.rickmortyapp.databinding.FragmentCharactersBinding
+import com.shevchenkovtwo.rickmortyapp.databinding.FragmentEpisodeProflieBinding
 import com.shevchenkovtwo.rickmortyapp.viewmodel.CharactersViewModel
 
 class CharactersFragment : Fragment() {
 
     private lateinit var charactersViewModel: CharactersViewModel
+    private var fragmentCharactersBinding: FragmentCharactersBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_characters, container, false)
+        val binding = FragmentCharactersBinding.inflate(inflater, container, false)
+        fragmentCharactersBinding = binding
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val recyclerView = view?.findViewById<RecyclerView>(R.id.rv_characters)
+        val recyclerView = fragmentCharactersBinding?.rvCharacters
         charactersViewModel = ViewModelProvider(this).get(CharactersViewModel::class.java)
         charactersViewModel.charactersData.observe(viewLifecycleOwner, Observer {
             val charactersAdapter = CharactersAdapter(requireContext(), it)
