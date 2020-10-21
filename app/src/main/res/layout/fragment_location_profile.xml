@@ -22,18 +22,19 @@
 
     <TextView
         android:id="@+id/tv_location_type"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textSize="18sp"
         android:textStyle="italic"
+        app:layout_constraintEnd_toStartOf="@+id/tv_location_dimension"
         app:layout_constraintStart_toStartOf="@+id/tv_location_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_location_name"
         tools:text="Location type" />
 
     <TextView
         android:id="@+id/tv_location_dimension"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:textSize="18sp"
@@ -44,7 +45,7 @@
 
     <TextView
         android:id="@+id/tv_location_created"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
