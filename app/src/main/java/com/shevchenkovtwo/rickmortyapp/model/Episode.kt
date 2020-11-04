@@ -1,16 +1,17 @@
 package com.shevchenkovtwo.rickmortyapp.model
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+
 
 data class Episode(
-    @SerializedName("id")
+    @Json(name = "id")
     val id: Int,
-    @SerializedName("name")
+    @Json(name = "name")
     val name: String,
-    @SerializedName("air_date")
+    @Json(name = "air_date")
     val airDate: String,
-    @SerializedName("episode")
+    @Json(name = "episode")
     val code: String,
-    @SerializedName("created")
+    @Json(name = "created")
     val created: String
 )

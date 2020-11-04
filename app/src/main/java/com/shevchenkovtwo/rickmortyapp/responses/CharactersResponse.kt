@@ -1,9 +1,10 @@
 package com.shevchenkovtwo.rickmortyapp.responses
 
-import com.google.gson.annotations.SerializedName
 import com.shevchenkovtwo.rickmortyapp.model.Character
+import com.squareup.moshi.Json
+
 
 data class CharactersResponse(
-    @SerializedName("results")
+    @Json(name = "results")
     val characters: List<Character>
 )

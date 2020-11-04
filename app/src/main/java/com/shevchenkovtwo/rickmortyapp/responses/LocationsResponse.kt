@@ -1,9 +1,10 @@
 package com.shevchenkovtwo.rickmortyapp.responses
 
-import com.google.gson.annotations.SerializedName
 import com.shevchenkovtwo.rickmortyapp.model.Location
+import com.squareup.moshi.Json
+
 
 data class LocationsResponse(
-    @SerializedName("results")
+    @Json(name = "results")
     val locations: List<Location>
 )

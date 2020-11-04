@@ -1,20 +1,21 @@
 package com.shevchenkovtwo.rickmortyapp.model
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+
 
 data class Character(
-    @SerializedName("id")
+    @Json(name = "id")
     val id: Int,
-    @SerializedName("name")
+    @Json(name = "name")
     val name: String,
-    @SerializedName("status")
+    @Json(name = "status")
     val status: String,
-    @SerializedName("species")
+    @Json(name = "species")
     val species: String,
-    @SerializedName("gender")
+    @Json(name = "gender")
     val gender: String,
-    @SerializedName("image")
+    @Json(name = "image")
     val image: String,
-    @SerializedName("created")
+    @Json(name = "created")
     val created: String
 )
