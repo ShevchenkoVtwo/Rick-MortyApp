@@ -6,15 +6,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.shevchenkovtwo.rickmortyapp.NetworkService
 import com.shevchenkovtwo.rickmortyapp.viewmodel.LocationsViewModel
 import com.shevchenkovtwo.rickmortyapp.adapter.LocationsAdapter
 import com.shevchenkovtwo.rickmortyapp.databinding.FragmentLocationsBinding
+import com.shevchenkovtwo.rickmortyapp.factories.LocationsViewModelFactory
+import kotlinx.coroutines.launch
 
 class LocationsFragment : Fragment() {
-    private lateinit var locationsViewModel: LocationsViewModel
+
     private var fragmentLocationsBinding: FragmentLocationsBinding? = null
+    private lateinit var locationsViewModel: LocationsViewModel
+    private lateinit var locationsAdapter: LocationsAdapter
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,18 +29,35 @@ class LocationsFragment : Fragment() {
     ): View? {
         val binding = FragmentLocationsBinding.inflate(inflater, container, false)
         fragmentLocationsBinding = binding
+        recyclerView = binding.rvLocations
+        setupViewModel()
+        setupList(binding.root)
+        setupView()
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        val recyclerView = fragmentLocationsBinding?.rvLocations
-        locationsViewModel = ViewModelProvider(this).get(LocationsViewModel::class.java)
-        locationsViewModel.locationsData.observe(viewLifecycleOwner, Observer {
-            val episodesAdapter = LocationsAdapter(requireContext(), it)
-            recyclerView?.layoutManager = LinearLayoutManager(requireContext())
-            recyclerView?.adapter = episodesAdapter
+    private fun setupView() {
+        locationsViewModel.locationsData.observe(viewLifecycleOwner, {
+            lifecycleScope.launch {
+                locationsAdapter.submitData(it)
+            }
         })
+    }
+
+    private fun setupList(view: View) {
+        locationsAdapter = LocationsAdapter()
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(view.context)
+            adapter = locationsAdapter
+        }
+    }
+
+    private fun setupViewModel() {
+        locationsViewModel =
+            ViewModelProvider(
+                this,
+                LocationsViewModelFactory(networkService = NetworkService.getService())
+            )[LocationsViewModel::class.java]
     }
 
     override fun onDestroyView() {

@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.shevchenkovtwo.rickmortyapp.AppConstants
 import com.shevchenkovtwo.rickmortyapp.model.Character
 
+
 class CharacterViewModel : ViewModel() {
     var characterData: MutableLiveData<Character>? = null
 

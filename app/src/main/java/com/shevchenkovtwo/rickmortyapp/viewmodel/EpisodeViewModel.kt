@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.shevchenkovtwo.rickmortyapp.AppConstants
 import com.shevchenkovtwo.rickmortyapp.model.Episode
 
+
 class EpisodeViewModel : ViewModel() {
     var episodeData: MutableLiveData<Episode>? = null
 

@@ -1,23 +1,17 @@
 package com.shevchenkovtwo.rickmortyapp.viewmodel
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.shevchenkovtwo.rickmortyapp.AppConstants
-import com.shevchenkovtwo.rickmortyapp.loadEpisodes
-import com.shevchenkovtwo.rickmortyapp.loadPages
-import com.shevchenkovtwo.rickmortyapp.model.Episode
-import com.shevchenkovtwo.rickmortyapp.model.Info
-import kotlinx.coroutines.launch
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
+import androidx.paging.liveData
+import com.shevchenkovtwo.rickmortyapp.NetworkService
+import com.shevchenkovtwo.rickmortyapp.datasource.EpisodesDataSource
 
-class EpisodesViewModel : ViewModel() {
-    val episodesData: MutableLiveData<List<Episode>> = MutableLiveData()
-    private var info: Info? = null
 
-    init {
-        viewModelScope.launch {
-            info = loadPages("episode")
-            episodesData.value = loadEpisodes(AppConstants.pageCounter)
-        }
-    }
+class EpisodesViewModel(private val networkService: NetworkService) : ViewModel() {
+    val episodesData = Pager(PagingConfig(pageSize = 20)) {
+        EpisodesDataSource(networkService)
+    }.liveData.cachedIn(viewModelScope)
 }

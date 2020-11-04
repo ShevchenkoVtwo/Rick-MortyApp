@@ -1,21 +1,16 @@
 package com.shevchenkovtwo.rickmortyapp.viewmodel
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.shevchenkovtwo.rickmortyapp.*
-import com.shevchenkovtwo.rickmortyapp.model.Info
-import com.shevchenkovtwo.rickmortyapp.model.Location
-import kotlinx.coroutines.launch
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
+import androidx.paging.liveData
+import com.shevchenkovtwo.rickmortyapp.NetworkService
+import com.shevchenkovtwo.rickmortyapp.datasource.LocationsDataSource
 
-class LocationsViewModel : ViewModel() {
-    val locationsData: MutableLiveData<List<Location>> = MutableLiveData()
-    private var info: Info? = null
-
-    init {
-        viewModelScope.launch {
-            info = loadPages("location")
-            locationsData.value = loadLocations(AppConstants.pageCounter)
-        }
-    }
+class LocationsViewModel (private val networkService: NetworkService): ViewModel() {
+    val locationsData = Pager(PagingConfig(pageSize = 20)) {
+        LocationsDataSource(networkService)
+    }.liveData.cachedIn(viewModelScope)
 }
