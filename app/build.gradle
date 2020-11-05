@@ -53,6 +53,7 @@ dependencies {
     def appcompat_version = "1.2.0"
     def legacy_support_version = "1.0.0"
     def moshi_version = "1.11.0"
+    def room_version = "2.2.5"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$androidx_core_version"
@@ -84,4 +85,7 @@ dependencies {
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
     //Moshi
     implementation"com.squareup.moshi:moshi-kotlin:$moshi_version"
+    //Room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 }
