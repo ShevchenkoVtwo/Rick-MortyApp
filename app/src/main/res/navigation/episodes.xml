@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/episodesFragment"
-        android:name="com.shevchenkovtwo.rickmortyapp.fragment.EpisodesFragment"
+        android:name="com.shevchenkovtwo.rickmortyapp.ui.fragment.EpisodesFragment"
         tools:layout="@layout/fragment_episodes" >
         <action
             android:id="@+id/action_episodesFragment_to_episodeFragment"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentEpisodeProfile"
-        android:name="com.shevchenkovtwo.rickmortyapp.fragment.EpisodeFragment"
+        android:name="com.shevchenkovtwo.rickmortyapp.ui.fragment.EpisodeFragment"
         tools:layout="@layout/fragment_episode_proflie" />
 
 </navigation>

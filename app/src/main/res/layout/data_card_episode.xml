@@ -3,147 +3,112 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/font"
-        android:text="@string/episode_name"
-        android:textColor="@color/teal_200"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_episode_name_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/divider9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/divider9"
-        tools:text="Epiosde name" />
-
-    <view
-        android:id="@+id/divider9"
-        class="androidx.constraintlayout.widget.ConstraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="#D8D8D8"
-        app:layout_constraintBottom_toBottomOf="@id/textView9"
-        app:layout_constraintEnd_toStartOf="@+id/tv_episode_name_text"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="@id/textView9" />
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_rect_top"
+    android:backgroundTint="@color/cyan_dark">
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/font"
-        android:text="@string/episode_code"
-        android:textColor="@color/teal_200"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        style="@style/TextAppearanceData"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/episode_name"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/tv_episode_code_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+        android:id="@+id/episode_name"
+        style="@style/TextAppearanceLoadedData"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/divider5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/divider5"
-        tools:text="Code" />
+        tools:text="Epiosde name" />
 
     <view
         android:id="@+id/divider5"
-        class="androidx.constraintlayout.widget.ConstraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="#D8D8D8"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
-        app:layout_constraintEnd_toStartOf="@+id/tv_episode_code_text"
+        style="@style/Divider"
+        class="androidx.cardview.widget.CardView"
+        app:layout_constraintBottom_toBottomOf="@id/textView5"
+        app:layout_constraintEnd_toStartOf="@+id/episode_name"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="@id/textView5" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/TextAppearanceData"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/font"
-        android:text="@string/episode_air"
-        android:textColor="@color/teal_200"
-        android:textSize="18sp"
+        android:text="@string/episode_code"
+        app:layout_constraintBottom_toTopOf="@+id/textView67"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
-        android:id="@+id/tv_episode_air_date_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+        android:id="@+id/episode_code"
+        style="@style/TextAppearanceLoadedData"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/divider6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/divider6"
-        tools:text="Episode air date" />
+        tools:text="Code" />
 
     <view
         android:id="@+id/divider6"
-        class="androidx.constraintlayout.widget.ConstraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="#D8D8D8"
+        style="@style/Divider"
+        class="androidx.cardview.widget.CardView"
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
-        app:layout_constraintEnd_toStartOf="@+id/tv_episode_air_date_text"
+        app:layout_constraintEnd_toStartOf="@+id/episode_code"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="@+id/textView6" />
 
     <TextView
-        android:id="@+id/tv_created_time_episode"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/font"
-        android:text="@string/episode_time_of_creation"
-        android:textAlignment="center"
-        android:textColor="@color/teal_200"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_episode_air_date_text"
+        android:id="@+id/textView67"
+        style="@style/TextAppearanceData"
+        android:layout_marginTop="8dp"
+        android:text="@string/episode_air"
+        app:layout_constraintBottom_toTopOf="@+id/textView12"
         app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/divider6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
-        android:id="@+id/tv_episode_created_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/episode_air_date"
+        style="@style/TextAppearanceLoadedData"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/divider7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/divider7"
+        tools:text="Episode air date" />
+
+    <view
+        android:id="@+id/divider7"
+        style="@style/Divider"
+        class="androidx.cardview.widget.CardView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView67"
+        app:layout_constraintEnd_toStartOf="@+id/episode_air_date"
+        app:layout_constraintStart_toEndOf="@+id/textView67"
+        app:layout_constraintTop_toTopOf="@+id/textView67" />
+
+    <TextView
+        android:id="@+id/textView12"
+        style="@style/TextAppearanceData"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/episode_time_of_creation"
+        app:layout_constraintEnd_toEndOf="@+id/episode_air_date"
+        app:layout_constraintStart_toStartOf="@+id/textView67"
+        app:layout_constraintTop_toBottomOf="@+id/divider7" />
+
+    <TextView
+        android:id="@+id/episode_created"
+        style="@style/TextAppearanceLoadedData"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:textAlignment="center"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tv_created_time_episode"
-        app:layout_constraintStart_toStartOf="@+id/tv_created_time_episode"
-        app:layout_constraintTop_toBottomOf="@+id/tv_created_time_episode"
+        app:layout_constraintEnd_toEndOf="@+id/textView12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
         tools:text="Episode created" />
 </androidx.constraintlayout.widget.ConstraintLayout>

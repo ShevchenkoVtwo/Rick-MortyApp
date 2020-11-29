@@ -18,4 +18,5 @@
     <string name="location_name">Location name</string>
     <string name="location_dimension">Location dimension</string>
     <string name="location_type">Location type</string>
+    <string name="menu_favourite">Favourite</string>
 </resources>

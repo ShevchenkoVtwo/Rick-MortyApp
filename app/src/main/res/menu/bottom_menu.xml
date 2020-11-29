@@ -13,4 +13,8 @@
         android:id="@+id/nav_episodes"
         android:icon="@drawable/ic_video_menu"
         android:title="@string/menu_episodes" />
+    <item
+        android:id="@+id/nav_favourite"
+        android:icon="@drawable/ic_favorite"
+        android:title="@string/menu_favourite" />
 </menu>
