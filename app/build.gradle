@@ -37,7 +37,7 @@ android {
 }
 
 dependencies {
-    def paging_version = "3.0.0-alpha08"
+    def paging_version = "3.0.0-alpha09"
     def glide_version = "4.11.0"
     def junit_version = "4.13.1"
     def junit_test_version = "1.1.2"
@@ -47,7 +47,7 @@ dependencies {
     def view_model_version = "2.2.0"
     def retrofit_version = "2.9.0"
     def navigation_version = "2.3.1"
-    def constraint_layout_version = "2.0.3"
+    def constraint_layout_version = "2.0.4"
     def material_version = "1.2.1"
     def androidx_core_version = "1.3.2"
     def appcompat_version = "1.2.0"
