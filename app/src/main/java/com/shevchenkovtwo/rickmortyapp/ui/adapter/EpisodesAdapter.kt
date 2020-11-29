@@ -1,4 +1,4 @@
-package com.shevchenkovtwo.rickmortyapp.adapter
+package com.shevchenkovtwo.rickmortyapp.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,13 +7,13 @@ import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.shevchenkovtwo.rickmortyapp.AppConstants
+import com.shevchenkovtwo.rickmortyapp.common.AppConstants
 import com.shevchenkovtwo.rickmortyapp.R
 import com.shevchenkovtwo.rickmortyapp.databinding.ListViewEpisodeItemBinding
-import com.shevchenkovtwo.rickmortyapp.model.Episode
+import com.shevchenkovtwo.rickmortyapp.data.database.model.Episode
 
-class EpisodesAdapter :
-    PagingDataAdapter<Episode, EpisodesAdapter.ViewHolder>(EpisodesAdapter.EpisodeDifferentiate) {
+
+class EpisodesAdapter : PagingDataAdapter<Episode, EpisodesAdapter.ViewHolder>(EpisodeDifferentiate) {
     class ViewHolder(val item: View) : RecyclerView.ViewHolder(item) {
         val binding = ListViewEpisodeItemBinding.bind(item)
     }
@@ -28,7 +28,7 @@ class EpisodesAdapter :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
-            binding.tvEpisodeName.text = getItem(position)?.name
+            binding.listEpisodeName.text = getItem(position)?.name
             item.setOnClickListener {
                 AppConstants.episodeSelected = getItem(position)
                 item.findNavController()

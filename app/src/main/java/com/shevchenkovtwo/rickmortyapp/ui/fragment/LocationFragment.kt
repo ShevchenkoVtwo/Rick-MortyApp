@@ -1,4 +1,4 @@
-package com.shevchenkovtwo.rickmortyapp.fragment
+package com.shevchenkovtwo.rickmortyapp.ui.fragment
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -9,32 +9,35 @@ import android.view.ViewGroup
 import com.shevchenkovtwo.rickmortyapp.viewmodel.LocationViewModel
 import com.shevchenkovtwo.rickmortyapp.databinding.FragmentLocationProfileBinding
 
+
 class LocationFragment : Fragment() {
 
     private lateinit var locationModel: LocationViewModel
-    private var fragmentEpisodeBinding: FragmentLocationProfileBinding? = null
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    private var fragmentLocationBinding: FragmentLocationProfileBinding? = null
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val binding = FragmentLocationProfileBinding.inflate(inflater, container, false)
-        fragmentEpisodeBinding = binding
+        fragmentLocationBinding = binding
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         locationModel = ViewModelProvider(this).get(LocationViewModel::class.java)
-        locationModel.getLocationLiveData().observe(viewLifecycleOwner, {
-            fragmentEpisodeBinding?.layoutLocationCard?.tvLocationNameText?.text = it.name
-            fragmentEpisodeBinding?.layoutLocationCard?.tvLocationDimensionText?.text = it.dimension
-            fragmentEpisodeBinding?.layoutLocationCard?.tvLocationTypeText?.text = it.type
-            fragmentEpisodeBinding?.layoutLocationCard?.tvCreatedTimeLocation?.text = it.created
+        locationModel.getLocationLiveData().observe(viewLifecycleOwner, { location ->
+            fragmentLocationBinding?.let {
+                it.apply {
+                    locationDataCard.locationName.text = location.name
+                    locationDataCard.locationDimension.text = location.dimension
+                    locationDataCard.locationType.text = location.type
+                    locationDataCard.locationCreated.text = location.created
+                }
+            }
         })
     }
 
     override fun onDestroyView() {
-        fragmentEpisodeBinding = null
+        fragmentLocationBinding = null
         super.onDestroyView()
     }
 }

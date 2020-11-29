@@ -2,12 +2,12 @@ package com.shevchenkovtwo.rickmortyapp.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.shevchenkovtwo.rickmortyapp.AppConstants
-import com.shevchenkovtwo.rickmortyapp.model.Episode
+import com.shevchenkovtwo.rickmortyapp.common.AppConstants
+import com.shevchenkovtwo.rickmortyapp.data.database.model.Episode
 
 
 class EpisodeViewModel : ViewModel() {
-    var episodeData: MutableLiveData<Episode>? = null
+    private var episodeData: MutableLiveData<Episode>? = null
 
     init {
         episodeData = MutableLiveData()

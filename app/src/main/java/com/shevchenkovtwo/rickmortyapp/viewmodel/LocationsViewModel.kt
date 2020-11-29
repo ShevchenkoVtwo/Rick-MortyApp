@@ -6,8 +6,9 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import androidx.paging.liveData
-import com.shevchenkovtwo.rickmortyapp.NetworkService
-import com.shevchenkovtwo.rickmortyapp.datasource.LocationsDataSource
+import com.shevchenkovtwo.rickmortyapp.data.network.NetworkService
+import com.shevchenkovtwo.rickmortyapp.data.datasource.LocationsDataSource
+
 
 class LocationsViewModel (private val networkService: NetworkService): ViewModel() {
     val locationsData = Pager(PagingConfig(pageSize = 20)) {

@@ -1,9 +1,10 @@
-package com.shevchenkovtwo.rickmortyapp.model
+package com.shevchenkovtwo.rickmortyapp.data.database.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
+
 
 @Entity(tableName = "characters")
 data class Character(

@@ -2,12 +2,12 @@ package com.shevchenkovtwo.rickmortyapp.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.shevchenkovtwo.rickmortyapp.AppConstants
-import com.shevchenkovtwo.rickmortyapp.model.Location
+import com.shevchenkovtwo.rickmortyapp.common.AppConstants
+import com.shevchenkovtwo.rickmortyapp.data.database.model.Location
 
 
 class LocationViewModel : ViewModel() {
-    var locationData: MutableLiveData<Location>? = null
+    private var locationData: MutableLiveData<Location>? = null
 
     init {
         locationData = MutableLiveData()

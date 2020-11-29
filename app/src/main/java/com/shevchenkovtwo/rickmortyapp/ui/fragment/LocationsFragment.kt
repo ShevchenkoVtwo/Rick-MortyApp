@@ -1,4 +1,4 @@
-package com.shevchenkovtwo.rickmortyapp.fragment
+package com.shevchenkovtwo.rickmortyapp.ui.fragment
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -9,12 +9,13 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.shevchenkovtwo.rickmortyapp.NetworkService
+import com.shevchenkovtwo.rickmortyapp.data.network.NetworkService
 import com.shevchenkovtwo.rickmortyapp.viewmodel.LocationsViewModel
-import com.shevchenkovtwo.rickmortyapp.adapter.LocationsAdapter
+import com.shevchenkovtwo.rickmortyapp.ui.adapter.LocationsAdapter
 import com.shevchenkovtwo.rickmortyapp.databinding.FragmentLocationsBinding
 import com.shevchenkovtwo.rickmortyapp.factories.LocationsViewModelFactory
 import kotlinx.coroutines.launch
+
 
 class LocationsFragment : Fragment() {
 
@@ -23,10 +24,7 @@ class LocationsFragment : Fragment() {
     private lateinit var locationsAdapter: LocationsAdapter
     private lateinit var recyclerView: RecyclerView
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val binding = FragmentLocationsBinding.inflate(inflater, container, false)
         fragmentLocationsBinding = binding
         recyclerView = binding.rvLocations

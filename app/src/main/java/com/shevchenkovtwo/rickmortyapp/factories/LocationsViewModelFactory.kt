@@ -2,8 +2,9 @@ package com.shevchenkovtwo.rickmortyapp.factories
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.shevchenkovtwo.rickmortyapp.NetworkService
+import com.shevchenkovtwo.rickmortyapp.data.network.NetworkService
 import com.shevchenkovtwo.rickmortyapp.viewmodel.LocationsViewModel
+
 
 class LocationsViewModelFactory(private val networkService: NetworkService) :
     ViewModelProvider.Factory {

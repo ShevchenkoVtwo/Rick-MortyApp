@@ -1,8 +1,8 @@
-package com.shevchenkovtwo.rickmortyapp.datasource
+package com.shevchenkovtwo.rickmortyapp.data.datasource
 
 import androidx.paging.PagingSource
-import com.shevchenkovtwo.rickmortyapp.NetworkService
-import com.shevchenkovtwo.rickmortyapp.model.Episode
+import com.shevchenkovtwo.rickmortyapp.data.network.NetworkService
+import com.shevchenkovtwo.rickmortyapp.data.database.model.Episode
 
 
 class EpisodesDataSource(

@@ -1,4 +1,4 @@
-package com.shevchenkovtwo.rickmortyapp.activity
+package com.shevchenkovtwo.rickmortyapp.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         // Whenever the selected controller changes, setup the action bar.
-        controller.observe(this, Observer { navController ->
+        controller.observe(this, { navController ->
             setupActionBarWithNavController(navController)
         })
         currentNavController = controller

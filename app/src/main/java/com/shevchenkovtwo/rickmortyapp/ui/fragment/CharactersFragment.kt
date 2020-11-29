@@ -1,4 +1,4 @@
-package com.shevchenkovtwo.rickmortyapp.fragment
+package com.shevchenkovtwo.rickmortyapp.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shevchenkovtwo.rickmortyapp.factories.CharactersViewModelFactory
-import com.shevchenkovtwo.rickmortyapp.NetworkService
-import com.shevchenkovtwo.rickmortyapp.adapter.CharactersAdapter
+import com.shevchenkovtwo.rickmortyapp.data.network.NetworkService
+import com.shevchenkovtwo.rickmortyapp.ui.adapter.CharactersAdapter
 import com.shevchenkovtwo.rickmortyapp.databinding.FragmentCharactersBinding
 import com.shevchenkovtwo.rickmortyapp.viewmodel.CharactersViewModel
 import kotlinx.coroutines.launch
@@ -24,10 +24,7 @@ class CharactersFragment : Fragment() {
     private lateinit var charactersAdapter: CharactersAdapter
     private lateinit var recyclerView: RecyclerView
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val binding = FragmentCharactersBinding.inflate(inflater, container, false)
         fragmentCharactersBinding = binding
         recyclerView = binding.rvCharacters

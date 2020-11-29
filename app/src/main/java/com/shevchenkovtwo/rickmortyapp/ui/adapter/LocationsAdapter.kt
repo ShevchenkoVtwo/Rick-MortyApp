@@ -1,4 +1,4 @@
-package com.shevchenkovtwo.rickmortyapp.adapter
+package com.shevchenkovtwo.rickmortyapp.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,12 +7,13 @@ import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.shevchenkovtwo.rickmortyapp.AppConstants
+import com.shevchenkovtwo.rickmortyapp.common.AppConstants
 import com.shevchenkovtwo.rickmortyapp.R
 import com.shevchenkovtwo.rickmortyapp.databinding.ListViewLocationItemBinding
-import com.shevchenkovtwo.rickmortyapp.model.Location
+import com.shevchenkovtwo.rickmortyapp.data.database.model.Location
 
-class LocationsAdapter: PagingDataAdapter<Location, LocationsAdapter.ViewHolder>(LocationDifferentiate) {
+
+class LocationsAdapter : PagingDataAdapter<Location, LocationsAdapter.ViewHolder>(LocationDifferentiate) {
     class ViewHolder(val item: View) : RecyclerView.ViewHolder(item) {
         val binding = ListViewLocationItemBinding.bind(item)
     }
@@ -27,7 +28,7 @@ class LocationsAdapter: PagingDataAdapter<Location, LocationsAdapter.ViewHolder>
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
-            binding.tvLocationName.text = getItem(position)?.name
+            binding.listLocationName.text = getItem(position)?.name
             item.setOnClickListener {
                 AppConstants.locationSelected = getItem(position)
                 item.findNavController()

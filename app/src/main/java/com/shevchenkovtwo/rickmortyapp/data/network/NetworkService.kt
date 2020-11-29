@@ -1,8 +1,9 @@
-package com.shevchenkovtwo.rickmortyapp
+package com.shevchenkovtwo.rickmortyapp.data.network
 
-import com.shevchenkovtwo.rickmortyapp.responses.CharactersResponse
-import com.shevchenkovtwo.rickmortyapp.responses.EpisodesResponse
-import com.shevchenkovtwo.rickmortyapp.responses.LocationsResponse
+import com.shevchenkovtwo.rickmortyapp.common.AppConstants
+import com.shevchenkovtwo.rickmortyapp.data.network.responses.CharactersResponse
+import com.shevchenkovtwo.rickmortyapp.data.network.responses.EpisodesResponse
+import com.shevchenkovtwo.rickmortyapp.data.network.responses.LocationsResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Response
@@ -27,7 +28,7 @@ interface NetworkService {
         private val moshi = Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
             .build()
-        fun getService() = Retrofit.Builder()
+        fun getService(): NetworkService = Retrofit.Builder()
             .baseUrl(AppConstants.baseUri)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
